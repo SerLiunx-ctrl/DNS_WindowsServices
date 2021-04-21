@@ -49,6 +49,8 @@ namespace DNS_WindowsServices.Files
                     instances.Add(new Instance(statsB,config[i]["infoUrl"].ToString(), config[i]["modifyUrl"].ToString(), config[i]["type"].ToString(),config[i]["subDomain"].ToString(),config[i]["domainName"].ToString()
                         , config[i]["token"].ToString(), config[i]["ipServer"].ToString(),config[i]["recordId"].ToString(), config[i]["instanceName"].ToString(), Convert.ToInt32(config[i]["intervalMain"])));
                     Log.OutLine("成功载入实例: " + config[i]["instanceName"].ToString() + (statsB ? "(已启用)":"(未启用)"));
+
+                    Log.OutLine(instances[i].intervalMain.ToString());
                 }
                 catch
                 {

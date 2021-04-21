@@ -1,5 +1,6 @@
 ﻿using DNS_WindowsServices.Files;
 using Newtonsoft.Json.Linq;
+using System.Timers;
 
 namespace DNS_WindowsServices.Utils
 {
@@ -32,7 +33,7 @@ namespace DNS_WindowsServices.Utils
         //默认地址
         public string ipAddress = "0.0.0.0";
         //计时器
-        private System.Timers.Timer timer;
+        private Timer timer = new Timer();
         //运行次数
         private int timesCounter = 0;
 
@@ -49,17 +50,9 @@ namespace DNS_WindowsServices.Utils
             this.ipServer = ipServer;
             this.recordId = recordId;
             this.intervalMain = intervalMain;
-            Util();
         }
 
-        private void Util()
-        {
-            if (!this.stats) return;
-            timer = new System.Timers.Timer(this.intervalMain * 1000);
-            timer.Elapsed += Timer_Elapsed;
-        }
-
-        private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+        private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             string response = Internet.Post(this.token + "&domain=" + this.domainName + "&record_id=" + this.recordId + "&remark=",infoUrl);
            
@@ -68,7 +61,6 @@ namespace DNS_WindowsServices.Utils
                 Log.OutLine("["+this.instanceName + "] 实例对应信息获取失败! 无法完成本次验证.");
                 return;
             }
-
             JObject rss = JObject.Parse(response);
             ipAddress = Internet.GetIpaddress(this.ipServer);
 
@@ -123,7 +115,10 @@ namespace DNS_WindowsServices.Utils
 
         public void Start()
         {
-            if (!this.stats) return;
+            if (!this.stats)
+                return;
+            timer.Interval = this.intervalMain * 1000;
+            timer.Elapsed += Timer_Elapsed;
             this.timer.Start();
         }
 

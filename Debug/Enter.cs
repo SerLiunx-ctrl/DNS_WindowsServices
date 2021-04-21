@@ -14,9 +14,8 @@ namespace Debug
             _insfiles = new InstanceFiles(AppDomain.CurrentDomain.BaseDirectory + @"\ins.json");
             _insfiles.LoadFromFiles();
             _ins = _insfiles.GetInstances();
-            foreach (var t in _ins)
+            foreach (Instance t in _ins)
                 t.Start();
-
             Console.ReadKey();
         }
     }
