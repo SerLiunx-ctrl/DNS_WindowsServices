@@ -16,7 +16,7 @@ namespace DNS_WindowsServices.Files
 
 
         private void CreateConfig()
-        { 
+        {
             //
         }
     }
