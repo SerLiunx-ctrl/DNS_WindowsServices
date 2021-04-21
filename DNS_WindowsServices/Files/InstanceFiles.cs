@@ -7,13 +7,20 @@ using System.IO;
 
 namespace DNS_WindowsServices.Files
 {
-    class InstanceFiles
+    public class InstanceFiles
     {
-        private const string InstancesFileLocation = @"C:\DDNS_WindowsService\instances.json";
+        private string InstancesFileLocation = @"C:\DDNS_WindowsService\instances.json";
         private List<Instance> instances = new List<Instance>();
 
         public InstanceFiles()
         {
+            if (!File.Exists(InstancesFileLocation))
+                SaveToFile();
+        }
+
+        public InstanceFiles(string path)
+        {
+            this.InstancesFileLocation = path;
             if (!File.Exists(InstancesFileLocation))
                 SaveToFile();
         }
@@ -38,8 +45,7 @@ namespace DNS_WindowsServices.Files
             {
                 try
                 {
-                    string statsS = config[i]["stats"].ToString();
-                    bool statsB = statsS == "true" ? true : false;
+                    bool statsB = Boolean.Parse(config[i]["stats"].ToString());
                     instances.Add(new Instance(statsB,config[i]["infoUrl"].ToString(), config[i]["modifyUrl"].ToString(), config[i]["type"].ToString(),config[i]["subDomain"].ToString(),config[i]["domainName"].ToString()
                         , config[i]["token"].ToString(), config[i]["ipServer"].ToString(),config[i]["recordId"].ToString(), config[i]["instanceName"].ToString(), Convert.ToInt32(config[i]["intervalMain"])));
                     Log.OutLine("成功载入实例: " + config[i]["instanceName"].ToString() + (statsB ? "(已启用)":"(未启用)"));

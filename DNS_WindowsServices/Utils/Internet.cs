@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DNS_WindowsServices.Utils
 {
-    class Internet
+    public class Internet
     {
         public static string Post(string str,string url)
         {

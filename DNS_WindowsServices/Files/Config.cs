@@ -2,7 +2,7 @@
 
 namespace DNS_WindowsServices.Files
 {
-    class Config
+    public class Config
     {
         private const string versionNow = "0.0.1";
 
