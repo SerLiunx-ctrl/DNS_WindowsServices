@@ -7,13 +7,20 @@ using System.IO;
 
 namespace DNS_WindowsServices.Files
 {
-    class InstanceFiles
+    public class InstanceFiles
     {
-        private const string InstancesFileLocation = @"C:\DDNS_WindowsService\instances.json";
+        private string InstancesFileLocation = @"C:\DDNS_WindowsService\instances.json";
         private List<Instance> instances = new List<Instance>();
 
         public InstanceFiles()
         {
+            if (!File.Exists(InstancesFileLocation))
+                SaveToFile();
+        }
+
+        public InstanceFiles(string path)
+        {
+            this.InstancesFileLocation = path;
             if (!File.Exists(InstancesFileLocation))
                 SaveToFile();
         }

@@ -3,7 +3,7 @@ using System.IO;
 
 namespace DNS_WindowsServices.Files
 {
-    class Log
+    public class Log
     {
         private static StreamWriter _sw;
         private const string LogFileLocation = @"C:\DDNS_WindowsService\Logs";

@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace DNS_WindowsServices.Utils
 {
-    class Instance:IInstanceManager
+    public class Instance:IInstanceManager
     {
         //运行状态
         public bool stats { get; set; }
