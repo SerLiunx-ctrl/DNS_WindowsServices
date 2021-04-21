@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 
 namespace DNS_WindowsServices.Utils
 {
-    class Instance
+    class Instance:InstanceManager
     {
         //运行状态
         public bool stats { get; set; }
@@ -89,7 +89,7 @@ namespace DNS_WindowsServices.Utils
 
         }
 
-        private bool Modfiy()
+        public bool Modfiy()
         {
             string updateCord;
             updateCord = Internet.Post(this.token + "&domain=" + this.domainName + "&record_id=" + 
@@ -116,7 +116,7 @@ namespace DNS_WindowsServices.Utils
             return true;
         }
 
-        private void Counter(int i)
+        public void Counter(int i)
         {
             timesCounter += i;
         }
