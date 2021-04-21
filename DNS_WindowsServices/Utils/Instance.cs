@@ -118,7 +118,7 @@ namespace DNS_WindowsServices.Utils
 
         public void Counter(int i)
         {
-            timesCounter += i;
+            this.timesCounter += i;
         }
 
         public void Start()
