@@ -5,20 +5,35 @@ namespace DNS_WindowsServices.Utils
 {
     class Instance
     {
+        //运行状态
         public bool stats { get; set; }
+        //解析类型
         public string type { get; set; }
+        //实例名称
         public string instanceName { get; set; }
+        //目标域名
         public string domainName { get; set; }
+        //子域名
         public string subDomain { get; set; }
+        //token
         public string token { get; set; }
+        //获取IP地址的网页或服务器
         public string ipServer { get; set; }
+        //记录ID
         public string recordId { get; set; }
+        //解析间隔时间(秒)
         public int intervalMain { get; set; }
+        //获取解析记录信息目标地址
         public string infoUrl { get; set; }
+        
+        //POST方法目标地址
         public string modifyUrl { get; set; }
 
+        //默认地址
         public string ipAddress = "0.0.0.0";
+        //计时器
         private System.Timers.Timer timer;
+        //运行次数
         private int timesCounter = 0;
 
         public Instance(bool stats,string infoUrl,string modifyUrl,string type,string subDomain, string domainName, string token,string ipServer, string recordId, string instanceName,int intervalMain)
