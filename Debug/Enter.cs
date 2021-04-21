@@ -11,6 +11,7 @@ namespace Debug
         private static InstanceFiles _insfiles;
         static void Main(string[] args)
         {
+            _ins = new List<Instance>();
             _insfiles = new InstanceFiles(AppDomain.CurrentDomain.BaseDirectory + @"\ins.json");
             _insfiles.LoadFromFiles();
             _ins = _insfiles.GetInstances();
