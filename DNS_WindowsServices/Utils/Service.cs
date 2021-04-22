@@ -12,13 +12,9 @@ namespace DNS_WindowsServices.Utils
         //服务启动
         protected override void OnStart(string[] args)
         {
-            _ins = new List<Instance>();
             _insfiles = new InstanceFiles();
             _insfiles.LoadFromFiles();
-            _ins = _insfiles.GetInstances();
 
-            foreach (var t in _ins)
-                t.Start();
             Log.OutLine("服务启动成功!");
             base.OnStart(args);
         }

@@ -4,10 +4,12 @@ using System.Timers;
 
 namespace DNS_WindowsServices.Utils
 {
-    public class Instance:IInstanceManager
+    public class Instance:InstanceManager
     {
         //运行状态
         public bool stats { get; set; }
+        //服务商
+        public string dnr { get; set; }
         //解析类型
         public string type { get; set; }
         //实例名称
@@ -26,10 +28,8 @@ namespace DNS_WindowsServices.Utils
         public int intervalMain { get; set; }
         //获取解析记录信息目标地址
         public string infoUrl { get; set; }
-        
         //POST方法目标地址
         public string modifyUrl { get; set; }
-
         //默认地址
         public string ipAddress = "0.0.0.0";
         //计时器
@@ -81,7 +81,7 @@ namespace DNS_WindowsServices.Utils
 
         }
 
-        public bool Modfiy()
+        public override bool Modfiy()
         {
             string updateCord;
             updateCord = Internet.Post(this.token + "&domain=" + this.domainName + "&record_id=" + 
@@ -113,7 +113,7 @@ namespace DNS_WindowsServices.Utils
             this.timesCounter += i;
         }
 
-        public void Start()
+        public override void Start()
         {
             if (!this.stats)
                 return;
@@ -122,7 +122,7 @@ namespace DNS_WindowsServices.Utils
             this.timer.Start();
         }
 
-        public void Stop()
+        public override void Stop()
         {
             if (!this.stats) return;
             this.timer.Stop();

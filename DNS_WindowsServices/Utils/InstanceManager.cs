@@ -1,9 +1,11 @@
-﻿namespace DNS_WindowsServices.Utils
+﻿using System.Collections.Generic;
+
+namespace DNS_WindowsServices.Utils
 {
-    interface IInstanceManager
+    public abstract class InstanceManager
     {
-        bool Modfiy();
-        void Start();
-        void Stop();
+        public abstract bool Modfiy();
+        public abstract void Start();
+        public abstract void Stop();
     }
 }

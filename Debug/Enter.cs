@@ -12,14 +12,6 @@ namespace Debug
         static void Main(string[] args)
         {
             _ins = new List<Instance>();
-=========
->>>>>>>>> Temporary merge branch 2
-            _ins = new List<Instance>();
-=========
->>>>>>>>> Temporary merge branch 2
-            _ins = new List<Instance>();
-=========
->>>>>>>>> Temporary merge branch 2
             _insfiles = new InstanceFiles(AppDomain.CurrentDomain.BaseDirectory + @"\ins.json");
             _insfiles.LoadFromFiles();
             _ins = _insfiles.GetInstances();
