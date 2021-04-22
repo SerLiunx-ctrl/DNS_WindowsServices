@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 
 namespace DNS_WindowsServices.Files
 {
-    class EXml
+    public class EXml
     {
         public string path { get; set; }
 
         public string name { get; set; }
 
         XmlDocument xmldoc;
-
+        XmlElement xmlelem;
         public EXml(string path,string name)
         {
             this.path = path;
@@ -24,13 +25,37 @@ namespace DNS_WindowsServices.Files
         {
             if (xmldoc.Equals(null))
                 return;
+
             XmlDeclaration xmldecl;
-            XmlElement xmlelem;
 
             xmldecl = xmldoc.CreateXmlDeclaration(version, ecoding, null);
             xmldoc.AppendChild(xmldecl);
             xmlelem = xmldoc.CreateElement("", root, "");
             xmldoc.AppendChild(xmlelem);
+
+        }
+
+        public void AddNode(string nodePath,string newNode)
+        {
+            
+        }
+
+        public List<string> SplitNodePath(string nodePath)
+        {
+            List<string> pathConverted = new List<string>();
+            string[] nodePathOr = nodePath.Split('.');
+
+            for (int i = 0;i < nodePathOr.Length;i++)
+            {
+                pathConverted.Add(nodePathOr[i]);
+            }
+
+            return pathConverted;
+        }
+
+        public void Save()
+        {
+            this.xmldoc.Save(this.path + @"\" + this.name);
         }
     }
 }
