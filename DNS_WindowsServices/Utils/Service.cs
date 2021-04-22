@@ -14,6 +14,7 @@ namespace DNS_WindowsServices.Utils
         {
             _insfiles = new InstanceFiles();
             _insfiles.LoadFromFiles();
+            _ins = _insfiles.GetInstances();
 
             foreach (var i in _ins)
                 i.Start();

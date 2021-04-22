@@ -37,7 +37,17 @@ namespace DNS_WindowsServices.Files
 
         public void AddNode(string nodePath,string newNode)
         {
-            
+            List<string> pathConverted = SplitNodePath(nodePath);
+
+            for (int i = 0;i < pathConverted.Count;i++)
+            {
+                foreach (var node in xmldoc.SelectSingleNode(pathConverted[i]).ChildNodes)
+                { 
+                    
+                }
+                break;
+            }
+
         }
 
         public List<string> SplitNodePath(string nodePath)
@@ -46,10 +56,7 @@ namespace DNS_WindowsServices.Files
             string[] nodePathOr = nodePath.Split('.');
 
             for (int i = 0;i < nodePathOr.Length;i++)
-            {
                 pathConverted.Add(nodePathOr[i]);
-            }
-
             return pathConverted;
         }
 
