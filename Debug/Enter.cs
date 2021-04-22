@@ -18,11 +18,6 @@ namespace Debug
             foreach (Instance t in _ins)
                 t.Start();
 
-            EXml e = new EXml(AppDomain.CurrentDomain.BaseDirectory,"test.xml");
-            e.CreateXml("config","1.0","ASCII");
-            e.Save();
-            e.AddNode("config.serliunx.abc", "test");
-
             Console.ReadKey();
         }
     }
