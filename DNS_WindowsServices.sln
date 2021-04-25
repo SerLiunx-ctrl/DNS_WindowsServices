@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DNS_WindowsServices", "DNS_WindowsServices\DNS_WindowsServices.csproj", "{D475D6BC-FFA5-4767-97B0-A4C4F07A587D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Debug", "Debug\Debug.csproj", "{9B482B31-77ED-46BD-8711-03242F631C34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Debug", "Debug\Debug.csproj", "{9B482B31-77ED-46BD-8711-03242F631C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{8CD7E932-BCBB-4B72-A760-51881C289AD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9B482B31-77ED-46BD-8711-03242F631C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B482B31-77ED-46BD-8711-03242F631C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B482B31-77ED-46BD-8711-03242F631C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CD7E932-BCBB-4B72-A760-51881C289AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CD7E932-BCBB-4B72-A760-51881C289AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CD7E932-BCBB-4B72-A760-51881C289AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CD7E932-BCBB-4B72-A760-51881C289AD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
